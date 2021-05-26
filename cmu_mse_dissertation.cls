@@ -1,3 +1,5 @@
+% adapted for MSE dissertation
+
 % This is a template for a CMU ECE dissertation.  It conforms to the
 % requirements from ECE as of May 2013.  Most importantly, the title
 % page is formatted as per ECE standards and does not contain the list
@@ -87,7 +89,7 @@ Submitted in partial fulfillment for the requirements for\\
 the degreee of\\
 Doctor of Philosophy\\
 in\\
-Electrical \& Computer Engineering\\
+Materials Science \& Engineering\\
 \end{center}
 \vfill}
 \end{minipage}
@@ -269,3 +271,4 @@ Electrical \& Computer Engineering\\
   \fi
   \@mainmattertrue
   \pagenumbering{arabic}}
+

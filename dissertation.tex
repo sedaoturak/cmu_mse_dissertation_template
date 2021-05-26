@@ -1,6 +1,8 @@
 % For a more compact document, add the option openany to avoid
 % starting all chapters on odd numbered pages
-\documentclass[12pt, pdftex]{cmu_ece_dissertation}
+\documentclass[12pt, pdftex]{cmu_mse_dissertation}
+
+% adapted for MSE dissertation
 
 % This is a template for a CMU ECE dissertation.  It conforms to the
 % requirements from ECE as of May 2013.  Most importantly, the title
@@ -31,6 +33,7 @@
 % template and also changed it so as to conform to ECE standards.
 
 % rajas: include just packages I think are probably necessary...
+\usepackage{float}
 \usepackage{amsmath}
 \usepackage{multirow}
 \usepackage{multicol}
@@ -41,9 +44,9 @@
 \usepackage{bigfoot}
 \usepackage{setspace}
   \onehalfspacing
-\usepackage[textwidth=0.9in, textsize=small, shadow, disable]{todonotes}
-\usepackage{sectsty}
-   \allsectionsfont{\sffamily}
+%\usepackage[textwidth=0.9in, textsize=small, shadow, disable]{todonotes}
+%\usepackage{sectsty}
+ %  \allsectionsfont{\sffamily}
 \usepackage{totcount}
    \regtotcounter{chapter}
 
@@ -76,7 +79,7 @@
 %\usepackage{MyriadPro}
 %\renewcommand{\sfdefault}{MyriadPro-LF}
 
-\usepackage[letterpaper,twoside,inner=1.3in,outer=1.3in,bottom=1.3in,top=1.3in]{geometry}
+\usepackage[letterpaper,twoside,inner=0.75in,outer=0.75in,bottom=0.75in,top=0.75in]{geometry}
 
 \usepackage[%
   hypcap=true,
@@ -134,15 +137,15 @@
 %initialize page style, so contents come out right (see bot) -mjz
 \pagestyle{empty}
 
-\title{\bf \textsf{My dissertation!!}}
-\author{}
-\date{June}
-\Year{1981}
+\title{\bf \textsf{Dissertation Title}}
+\author{Dissertation Author}
+\date{Date (month day)}
+\Year{Year}
 \trnumber{XXX-XXXX}
 
 \degrees{
-B.S., Electrical \& Computer Engineering, Carnegie Mellon University\\
-M.S., Electrical \& Computer Engineering, Carnegie Mellon University\\
+B.S., Materials Science \& Engineering, Carnegie Mellon University\\
+M.S., Materials Science \& Engineering, Carnegie Mellon University\\
 }
 
 \support{}
@@ -151,14 +154,15 @@ M.S., Electrical \& Computer Engineering, Carnegie Mellon University\\
 % copyright notice generated automatically from Year and author.
 % permission added if \permission{} given.
 
-\keywords{}
+\keywords{kw1, kw2, kw3}
 \maketitle
 
 \begin{dedication}
-To my dog.
+Dedication statement.
 \end{dedication}
 
 \begin{keywordspage}
+
 \end{keywordspage}
 \pagestyle{plain} % for toc, was empty
 
@@ -166,11 +170,11 @@ To my dog.
 \widowpenalty=9999
 
 \begin{abstract}
-This dissertation is amazingly important.
+Abstract text
 \end{abstract}
 
 \begin{acknowledgments}
-I thank...
+Acknowledgement text
 \end{acknowledgments}
 
 \tableofcontents
@@ -178,10 +182,13 @@ I thank...
 \listoftables
 
 \mainmatter
+%% input your text here 
 
 %% Double space document for easy review:
 %\renewcommand{\baselinestretch}{1.66}\normalsize
-
+\chapter{chapter title}
+\section{section title}
+Body text \cite{ref1}
 % dkoes's comments for cmuthesis.cls, which was originally designed for
 % CS dissertations: 
 % The other requirements Catherine has:
@@ -214,5 +221,6 @@ I thank...
 %\newcommand{\bibpreamble}{This text goes between the ``Bibliography''
 %  header and the actual list of references}
 \bibliographystyle{plain}
-\bibliography{} %your bib file
+\bibliography{refs} %your bib file (default refs.bib)
 \end{document}
+

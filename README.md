@@ -1,5 +1,7 @@
-cmu_ece_dissertation_template
+cmu_mse_dissertation_template
 =============================
+
+MSE template adapted from ECE template.
 
 A LaTeX template for PhD dissertations that conforms to the ECE
 department's requirements.
