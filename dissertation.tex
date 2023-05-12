@@ -1,5 +1,5 @@
-% For a more compact document, add the option openany to avoid starting all chapters on odd numbered pages
-\documentclass[12pt, pdftex]{cmu_mse_dissertation}
+\documentclass[12pt, pdftex, openany]{cmu_mse_dissertation}
+
 \usepackage[letterpaper,twoside,inner=0.75in,outer=0.75in,bottom=0.75in,top=0.75in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -9,6 +9,7 @@
 %===% Useful Packages %===%
 % Packages are in alphabetical order
 % Setup commands are tabbed under the relevant packages
+
 \usepackage{algorithm2e} % Support for nicely typeset pseudocode
     \RestyleAlgo{ruled}
     \SetKwComment{Comment}{/* }{ */}
@@ -20,11 +21,10 @@
 \usepackage{chemmacros} % Useful chemistry tools
     \usepackage{chemgreek} % Greek letters for chemistry
     % Note: chemmacros imports chemformula automatically!
-\usepackage{hyperref} % Hyperlinks (to sources etc)
+\usepackage[hidelinks]{hyperref} % Hyperlinks (to sources etc)
     \newcommand\fnurl[2]{% Sets up links to be both click & print as a footnote
         \href{#2}{#1}\footnote{\url{#2}}}
 \usepackage{kroger_vink} % Kroger-Vink defect chemistry notation
-%% IMPORTANT: The kroger_vink package is available at https://github.com/bjmorgan/kroger-vink and distributed with an MIT license
 \usepackage{miller} % Miller & Miller-Bravais indices
 \usepackage{multicol} % Table cells spanning multiple columns
 \usepackage{multirow} % Table cells spanning multiple rows
@@ -40,18 +40,17 @@
 
 \frontmatter
 
-%initialize page style, so contents come out right (see bot) -mjz
+% Initialize page style, so contents come out right
 \pagestyle{empty}
 
 \title{\bf \textsf{Dissertation Title}}
 \author{Dissertation Author}
-\date{Date (month day)}
+\date{Month}
 \Year{Year}
-\trnumber{XXX-XXXX}
 
 \degrees{
-B.S., Materials Science \& Engineering, Carnegie Mellon University\\
-M.S., Materials Science \& Engineering, Carnegie Mellon University\\
+B.S., Department, University\\
+M.S., Department, University\\
 }
 
 \support{}
@@ -90,7 +89,7 @@ Acknowledgement text
 %\renewcommand{\baselinestretch}{1.66}\normalsize
 \chapter{chapter title}
 \section{section title}
-Body text \cite{ref1}
+Body text \cite{article_template}
 % dkoes's comments for cmuthesis.cls, which was originally designed for
 % CS dissertations: 
 % The other requirements Catherine has:
@@ -114,15 +113,5 @@ Body text \cite{ref1}
 % \input{input.tex}
 
 \backmatter
-
-%\renewcommand{\baselinestretch}{1.0}\normalsize
-% By default \bibsection is \chapter*, but we really want this to show
-% up in the table of contents and pdf bookmarks.
-\renewcommand{\bibsection}{\chapter{\bibname}}
-%\setlength\bibsep{0pt plus 1pt}
-%\newcommand{\bibpreamble}{This text goes between the ``Bibliography''
-%  header and the actual list of references}
-\bibliographystyle{unsrtnat}
-\bibliography{refs} %your bib file (default refs.bib)
+\clearpage\printbibliography
 \end{document}
-
