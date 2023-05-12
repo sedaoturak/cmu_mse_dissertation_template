@@ -2,8 +2,8 @@
 \documentclass[12pt, pdftex]{cmu_mse_dissertation}
 \usepackage[letterpaper,twoside,inner=0.75in,outer=0.75in,bottom=0.75in,top=0.75in]{geometry}
 \usepackage[utf8]{inputenc}
-\usepackage{fontspec}
-\setmainfont{Asana-Math} % Widely available font (part of TeXLive), looks nice, good math mode support
+\usepackage[T1]{fontenc}
+\usepackage{fourier} % Widely available font (part of TeXLive), looks nice, good math mode support
 \linespread{0.901}  % This ensures 6 lines per inch
 
 %===% Useful Packages %===%
@@ -18,13 +18,13 @@
 \usepackage[style=ieee]{biblatex} % I like IEEE format, feel free to change this though
     \addbibresource{refs.bib}
 \usepackage{chemmacros} % Useful chemistry tools
-    \chemsetup{modules = all}
     \usepackage{textgreek} % Greek letters for chemistry
-    % Note: chemmacros imports chemformula too!
-    \setchemformula{kroeger-vink} % Enable Kroeger-Vink notation
-\usepackage[colorlink=false]{hyperref} % Hyperlinks (to sources etc)
+    % Note: chemmacros imports chemformula automatically!
+\usepackage{hyperref} % Hyperlinks (to sources etc)
     \newcommand\fnurl[2]{% Sets up links to be both click & print as a footnote
         \href{#2}{#1}\footnote{\url{#2}}}
+\usepackage{kroger_vink} % Kroger-Vink defect chemistry notation
+%% IMPORTANT: The kroger_vink package is available at https://github.com/bjmorgan/kroger-vink and distributed with an MIT license
 \usepackage{miller} % Miller & Miller-Bravais indices
 \usepackage{multicol} % Table cells spanning multiple columns
 \usepackage{multirow} % Table cells spanning multiple rows
@@ -32,7 +32,7 @@
     \DeclareSIUnit\rpm{rpm}
 \usepackage[hypcap=true]{subcaption} % Allows subfigures
 \usepackage[obeyFinal, textsize=footnotesize, backgroundcolor=white, linecolor=black]{todonotes} % TODO notes!
-    \setlength{\marginparwidth}{1.5cm}
+    \setlength{\marginparwidth}{2cm}
     \setlength{\marginparsep}{1cm}
 
 
