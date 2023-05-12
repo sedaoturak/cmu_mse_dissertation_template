@@ -5,7 +5,7 @@ A LaTeX template for PhD dissertations that conforms to the MSE (Materials Scien
 
 This is a template for a CMU MSE dissertation/thesis overview.  This template was modified from cmuthesis.cls, published by David Koes (www.cs.cmu.edu/~dkoes), and subsequently modified by Raja Sambasivan to conform to ECE standards.  This version is forked from an updated version by Ryan Cohn (https://github.com/rccohn), which was changed to conform to MSE standards.  See that version for more document history.
 
-As of 2021, the MSE department now requires these documents to follow the overal department of engineering standards.  These are currently available online (https://engineering.cmu.edu/education/academic-policies/graduate-policies/thesis-dissertation.html).  In case of link rot, they are recorded verbatim below:
+As of 2021, the MSE department now requires these documents to follow the overall department of engineering standards.  These are currently available online (https://engineering.cmu.edu/education/academic-policies/graduate-policies/thesis-dissertation.html).  In case of link rot, they are recorded verbatim below:
 
 
 > ### Title
