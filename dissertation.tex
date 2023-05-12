@@ -1,104 +1,40 @@
-% For a more compact document, add the option openany to avoid
-% starting all chapters on odd numbered pages
+% For a more compact document, add the option openany to avoid starting all chapters on odd numbered pages
 \documentclass[12pt, pdftex]{cmu_mse_dissertation}
-
-% rajas: include just packages I think are probably necessary...
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{multirow}
-\usepackage{multicol}
-\usepackage{ragged2e}
-\usepackage{algorithm2e}
-\usepackage{color}
-\usepackage{url}
-\usepackage{bigfoot}
-\usepackage{setspace}
-  \onehalfspacing
-%\usepackage[textwidth=0.9in, textsize=small, shadow, disable]{todonotes}
-%\usepackage{sectsty}
- %  \allsectionsfont{\sffamily}
-\usepackage{totcount}
-   \regtotcounter{chapter}
-
-\ifx\pdfoutput\undefined
-  % we are running LaTeX, not pdflatex
-  \usepackage{graphicx}
-\else
-% we are running pdflatex, so convert .eps files to .pdf
-  \def\pdfshellescape{1}
-  \usepackage[pdftex]{graphicx}
-  \usepackage{epstopdf}
-  \usepackage[protrusion=true,expansion=true]{microtype}
-\fi
-
-\usepackage[numbers, square, comma, sort&compress]{natbib}
-
-% rajas: For a beautiful dissertation, use Minion Pro and Myriad Pro
-% as default fonts.  If you have these fonts installed, uncomment the
-% lines below.  If not, the fonts can be installed by following the
-% directions at: 
-% Minion Pro: 
-%   * http://kieranhealy.org/blog/archives/2012/11/10/installing-minion-pro/
-%   * http://jklukas.blogspot.com/2010/02/installing-minionpro-tex-package.html
-% Myriad Pro: 
-%   * http://www.gaehrken.de/fonts/MyriadPro.txt
-\usepackage[T1]{fontenc}
-\usepackage{textcomp}
-%\usepackage{MinionPro}
-%\usepackage{MnSymbol}
-%\usepackage{MyriadPro}
-%\renewcommand{\sfdefault}{MyriadPro-LF}
-
 \usepackage[letterpaper,twoside,inner=0.75in,outer=0.75in,bottom=0.75in,top=0.75in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{fontspec}
+\setmainfont{Asana-Math} % Widely available font (part of TeXLive), looks nice, good math mode support
+\linespread{0.901}  % This ensures 6 lines per inch
 
-\usepackage[%
-  hypcap=true,
-  font=small,
-  labelfont=bf
-]{caption}
-\usepackage[hypcap=true]{subcaption}
-\usepackage[%
-  pdftex,             % using pdftex
-  pagebackref=true,   % backreferences
-  pageanchor=true,
-  plainpages=false, 
-  pdfpagelabels, 
-  bookmarks,
-  bookmarksnumbered,
-  colorlinks=true,
-  urlcolor=blue,
-  filecolor=blue,
-  linkcolor=black,
-  citecolor=black,
-  pdftitle={},
-  pdfauthor={},
-  pdfsubject={PhD thesis},
-  pdfkeywords={},
-  pdfproducer={pdfLaTeX},
-  %pdfborder=0 0 0,  %removes outlines around hyper links in online display
-]{hyperref}
+%===% Useful Packages %===%
+% Packages are in alphabetical order
+% Setup commands are tabbed under the relevant packages
+\usepackage{algorithm2e} % Support for nicely typeset pseudocode
+    \RestyleAlgo{ruled}
+    \SetKwComment{Comment}{/* }{ */}
+\usepackage{amsmath} % Great math package
+\usepackage{amsthm} % Typeset hypotheses, definitions, etc...
+    \newtheorem{hypothesis}{Hypothesis}
+\usepackage[style=ieee]{biblatex} % I like IEEE format, feel free to change this though
+    \addbibresource{refs.bib}
+\usepackage{chemmacros} % Useful chemistry tools
+    \chemsetup{modules = all}
+    \usepackage{textgreek} % Greek letters for chemistry
+    % Note: chemmacros imports chemformula too!
+    \setchemformula{kroeger-vink} % Enable Kroeger-Vink notation
+\usepackage[colorlink=false]{hyperref} % Hyperlinks (to sources etc)
+    \newcommand\fnurl[2]{% Sets up links to be both click & print as a footnote
+        \href{#2}{#1}\footnote{\url{#2}}}
+\usepackage{miller} % Miller & Miller-Bravais indices
+\usepackage{multicol} % Table cells spanning multiple columns
+\usepackage{multirow} % Table cells spanning multiple rows
+\usepackage{siunitx} % SI units package
+    \DeclareSIUnit\rpm{rpm}
+\usepackage[hypcap=true]{subcaption} % Allows subfigures
+\usepackage[obeyFinal, textsize=footnotesize, backgroundcolor=white, linecolor=black]{todonotes} % TODO notes!
+    \setlength{\marginparwidth}{1.5cm}
+    \setlength{\marginparsep}{1cm}
 
-% Make backreferences in the bibliography pretty
-\usepackage[hyperpageref]{backref} 
-   \renewcommand*{\backref}[1]{}  
-   \renewcommand*{\backrefalt}[4]{
-      \ifcase #1 
-         Not cited.
-      \or
-         Cited on page #2.
-      \else
-         Cited on pages #2.
-      \fi}
-
-% The following margin commands are needed by \todonotes
-\setlength{\marginparwidth}{1.5cm}
-\setlength{\marginparsep}{1cm}
-
-% Prevent latex from splitting footnotes across many pages
-%\interfootnotelinepenalty=9999
-
-% Provides a draft mark at the top of the document. 
-\draftstamp{\today}{DRAFT}
 
 \begin{document} 
 
@@ -126,10 +62,6 @@ M.S., Materials Science \& Engineering, Carnegie Mellon University\\
 
 \keywords{kw1, kw2, kw3}
 \maketitle
-
-\begin{dedication}
-Dedication statement.
-\end{dedication}
 
 \begin{keywordspage}
 
