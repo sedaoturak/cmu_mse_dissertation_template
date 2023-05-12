@@ -1,14 +1,13 @@
 \LoadClassWithOptions{book}
 
 %% titlepage parameters
-%%   required: title, author, date, Year, trnumber, committee
+%%   required: title, author, date, Year, committee
 %%   optional: permission, support, disclaimer, keywords
 
 \def\title#1{\gdef\@title{#1}}
 \def\author#1{\gdef\@author{#1}}
 \def\date#1{\gdef\@date{#1}}
 \def\Year#1{\gdef\@Year{#1}}
-\def\trnumber#1{\gdef\@trnumber{#1}}
 \def\degrees#1{\gdef\@degrees{#1}}
 \def\permission#1{\gdef\@permission{#1}}
 \def\support#1{\gdef\@support{#1}}
@@ -48,8 +47,6 @@
 \vfill
 \begin{center}
 {\Large \strut \@title\par}
-\vfill
-{\sc \@trnumber\par}
 \vfill
 Submitted in partial fulfillment for the requirements for\\
 the degreee of\\
