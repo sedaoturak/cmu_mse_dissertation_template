@@ -53,7 +53,6 @@ As of 2021, the MSE department now requires these documents to follow the overal
 > ### References
 > Citations of the professional literature should be standardized throughout the thesis or dissertation. The form of citation should be consistent with the form used in a standard professional journal of the candidates' field. The Harvard Citation Style is used commonly in engineering and science. The following journals are recommended as samples in each field of engineering:
 >
-> **Note**: most of this list has been omitted
-> * **Materials Science and Engineering** — Metallurgical Transactions.
+> **Note**: I've omitted this list; see the citation / bibliography style documentation on Overleaf (https://www.overleaf.com/learn/latex/Biblatex_bibliography_styles)
 > ### Additional guidance
 > Refer to the ProQuest document “Guide 1: Preparing Your Manuscript for Submission to ProQuest” for margins, paper type, line spacing and additional formatting guidelines that have not been noted above.
