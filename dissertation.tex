@@ -42,34 +42,28 @@
 \begin{document} 
 
 \frontmatter
-
 % Initialize page style, so contents come out right
 \pagestyle{empty}
 
+%===% Mandatory Title Page Parameters %===%
 \title{\bf \textsf{Dissertation Title}}
 \author{Dissertation Author}
 \date{Month}
 \Year{Year}
-
 \degrees{
 B.S., Department, University\\
 M.S., Department, University\\
 }
 
-\support{}
-\disclaimer{}
+% Copyright notice generated automatically from Year and author.
+%===% Optional Parameters %===%
+%\support{}
+%\disclaimer{}
+%\permission{}
+%\keywords{} % If you use this, \begin and \end the keywordspage environment after \maketitle
 
-% copyright notice generated automatically from Year and author.
-% permission added if \permission{} given.
-
-\keywords{kw1, kw2, kw3}
 \maketitle
-
-\begin{keywordspage}
-
-\end{keywordspage}
-\pagestyle{plain} % for toc, was empty
-
+\pagestyle{plain}
 \clubpenalty=9999
 \widowpenalty=9999
 
@@ -77,43 +71,18 @@ M.S., Department, University\\
 Abstract text
 \end{abstract}
 
-\begin{acknowledgments}
-Acknowledgement text
-\end{acknowledgments}
+%\begin{acknowledgments}
+%Acknowledgement text
+%\end{acknowledgments}
 
 \tableofcontents
 \listoffigures
 \listoftables
 
 \mainmatter
-%% input your text here 
-
-%% Double space document for easy review:
-%\renewcommand{\baselinestretch}{1.66}\normalsize
-\chapter{chapter title}
-\section{section title}
+\chapter{Chapter title}
+\section{Section title}
 Body text \cite{article_template}
-% dkoes's comments for cmuthesis.cls, which was originally designed for
-% CS dissertations: 
-% The other requirements Catherine has:
-%
-%  - avoid large margins.  She wants the thesis to use fewer pages, 
-%    especially if it requires colour printing.
-%
-%  - The thesis should be formatted for double-sided printing.  This
-%    means that all chapters, acknowledgements, table of contents, etc.
-%    should start on odd numbered (right facing) pages.
-%
-%  - You need to use the department standard tech report title page.  I
-%    have tried to ensure that the title page here conforms to this
-%    standard.
-%
-%  - Use a nice serif font, such as Times Roman.  Sans serif looks bad.
-%
-% Other than that, just make it look good...
-
-% rAdd other .tex files in input.tex
-% \input{input.tex}
 
 \backmatter
 \clearpage\printbibliography
