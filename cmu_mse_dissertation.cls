@@ -1,38 +1,4 @@
-% adapted for MSE dissertation
-
-% This is a template for a CMU ECE dissertation.  It conforms to the
-% requirements from ECE as of May 2013.  Most importantly, the title
-% page is formatted as per ECE standards and does not contain the list
-% of committee members.  This template was modified from cmuthesis.cls,
-% published by David Koes (www.cs.cmu.edu/~dkoes).  The next comment
-% block is from the original cmuthesis.cls file.
-
-%This is a template for a CMU thesis.  It is 18 pages without any content :-)
-% The source for this is pulled from a variety of sources and people.
-% Here's a partial list of people who may or may have not contributed:
-%
-%        bnoble   = Brian Noble
-%        caruana  = Rich Caruana
-%        colohan  = Chris Colohan
-%        jab      = Justin Boyan
-%        josullvn = Joseph O'Sullivan
-%        jrs      = Jonathan Shewchuk
-%        kosak    = Corey Kosak
-%        mjz      = Matt Zekauskas (mattz@cs)
-%        pdinda   = Peter Dinda
-%        pfr      = Patrick Riley
-%        dkoes = David Koes
-%        rajas = Raja Sambasivan
-
-% David Koes's mmain contribution was putting everything into a single
-% class files and small template.  Raja Sambasivan updated the
-% template and also changed it so as to conform to ECE standards.
-
 \LoadClassWithOptions{book}
-
-
-%% dkoes - Here's a bunch of stuff taken from mjz-titlepage.sty that makes
-% a pretty CMU techreport acceptable title page
 
 %% titlepage parameters
 %%   required: title, author, date, Year, trnumber, committee
