@@ -49,7 +49,7 @@
 {\Large \strut \@title\par}
 \vfill
 Submitted in partial fulfillment for the requirements for\\
-the degreee of\\
+the degree of\\
 Doctor of Philosophy\\
 in\\
 Materials Science \& Engineering\\
