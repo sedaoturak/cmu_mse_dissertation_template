@@ -1,5 +1,4 @@
-cmu_mse_dissertation_template
-=============================
+**LaTeX Dissertation Template - Materials Science and Engineering at Carnegie Mellon University**
 
 A LaTeX template for PhD dissertations that conforms to the MSE (Materials Science & Engineering) department's requirements at Carnegie Mellon University.
 
