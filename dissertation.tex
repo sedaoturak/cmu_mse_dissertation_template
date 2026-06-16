@@ -1,44 +1,68 @@
 \documentclass[12pt, pdftex, openany]{cmu_mse_dissertation}
-
+\raggedbottom
+%===% Packages %===%
 \usepackage[letterpaper,twoside,inner=0.75in,outer=0.75in,bottom=0.75in,top=0.75in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{fourier} % Widely available font (part of TeXLive), looks nice, good math mode support
+\usepackage{amsmath} % Added to define \text{}
+\usepackage{chemmacros} % Better for chemical formula formatting
+\usepackage[version=4]{mhchem} % for chemical reactions
+\usepackage{tabularx}  % for tables
+\usepackage{multirow}  % For tables with merged rows (table in Supplemenetary)
+\usepackage{booktabs}  % for modifying tables
 \usepackage{titlesec}
-    \titleformat{\chapter}[display]
-        {\normalfont\bfseries}{}{0pt}{\Huge}
-\linespread{0.9}
-
-%===% Useful Packages %===%
-% Packages are in alphabetical order
-% Setup commands are tabbed under the relevant packages
-
-\usepackage{algorithm2e} % Support for nicely typeset pseudocode
-    \RestyleAlgo{ruled}
-    \SetKwComment{Comment}{/* }{ */}
-\usepackage{amsmath} % Great math package
-\usepackage{amsthm} % Typeset hypotheses, definitions, etc...
-    \newtheorem{hypothesis}{Hypothesis}
-\usepackage[style=ieee]{biblatex} % I like IEEE format, feel free to change this though
-    \addbibresource{refs.bib}
-\usepackage{chemmacros} % Useful chemistry tools
-    \usepackage{chemgreek} % Greek letters for chemistry
-    % Note: chemmacros imports chemformula automatically!
-\usepackage[hidelinks]{hyperref} % Hyperlinks (to sources etc)
-    \newcommand\fnurl[2]{% Sets up links to be both click & print as a footnote
-        \href{#2}{#1}\footnote{\url{#2}}}
-\usepackage{kroger_vink} % Kroger-Vink defect chemistry notation
+\usepackage[style=ieee, citestyle=numeric-comp, autocite=superscript, backend=biber]{biblatex}
+\addbibresource{refs.bib}
+\usepackage[hidelinks]{hyperref}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage{float}
+% \usepackage{kroger_vink} % Kroger-Vink defect chemistry notation
 % IMPORTANT: The kroger_vink package is available at https://github.com/bjmorgan/kroger-vink and distributed with an MIT license
 % To use it, you must include the .sty file in your list of files in Overleaf (or put it in the same directory if working offline)
 \usepackage{miller} % Miller & Miller-Bravais indices
-\usepackage{multicol} % Table cells spanning multiple columns
-\usepackage{multirow} % Table cells spanning multiple rows
 \usepackage{siunitx} % SI units package
     \DeclareSIUnit\rpm{rpm}
-\usepackage[hypcap=true]{subcaption} % Allows subfigures
-\usepackage[obeyFinal, textsize=footnotesize, backgroundcolor=white, linecolor=black]{todonotes} % TODO notes!
-    \setlength{\marginparwidth}{2cm}
-    \setlength{\marginparsep}{1cm}
+
+\AtBeginDocument{
+  \setlength{\abovedisplayskip}{12pt plus 4pt minus 2pt}
+  \setlength{\belowdisplayskip}{12pt plus 4pt minus 2pt}
+  \setlength{\abovedisplayshortskip}{0pt plus 2pt}
+  \setlength{\belowdisplayshortskip}{6pt plus 2pt}
+}
+
+% Standard format for Front Matter (TOC, LOF, etc.)
+\titleformat{\chapter}[display]
+    {\normalfont\bfseries}{}{0pt}{\Huge}
+
+% Create a lightweight command for the custom chapter title page
+% Usage: \makecustomchapter{Title}{Content List}
+\newcommand{\makecustomchapter}[2]{
+    \clearpage
+    \thispagestyle{empty}
+    \refstepcounter{chapter} % Properly increments the chapter number
+    \addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}#1} % Adds to Table of Contents
+    
+    \vspace*{1.5in}
+    \begin{center}
+        {\Huge \textbf{\chaptertitlename\ \thechapter}} \\[\baselineskip]
+        {\Huge \textbf{#1}} \\
+        \vspace{2cm}
+        % {\small \textit{"Quote Quote Quote Quote Quote." Name}} \\
+        \vspace{4cm}
+        \begin{minipage}{0.8\textwidth}
+            \centering
+            \large\textbf{Contents}\\[0.5ex]
+            \rule{\textwidth}{0.8pt}\\[1ex]
+            \small #2 % This is where your custom content goes
+        \end{minipage}
+    \end{center}
+    \vfill
+    \clearpage
+}
+
+\renewcommand{\cleardoublepage}{\clearpage}
+\linespread{1.3}
 
 
 \begin{document} 
@@ -48,13 +72,12 @@
 \pagestyle{empty}
 
 %===% Mandatory Title Page Parameters %===%
-\title{\bf Dissertation Title}
-\author{Dissertation Author}
+\title{\bf Title of the Dissertation}
+\author{First Last}
 \date{Month}
-\Year{Year}
+\Year{20**}
 \degrees{
-B.S., Department, University\\
-M.S., Department, University\\
+B.S., *** University\\
 }
 
 % Copyright notice generated automatically from Year and author.
@@ -65,27 +88,85 @@ M.S., Department, University\\
 %\keywords{} % If you use this, \begin and \end the keywordspage environment after \maketitle
 
 \maketitle
+
+% \begin{dedication}
+% To my **.
+% \end{dedication}
+
 \pagestyle{plain}
 \clubpenalty=9999
 \widowpenalty=9999
 
 \begin{abstract}
-Abstract text
+Abstract goes here.
 \end{abstract}
 
-%\begin{acknowledgments}
-%Acknowledgement text
-%\end{acknowledgments}
+\begin{acknowledgments}
+Acknowledgments goes here.
+\end{acknowledgments}
 
 \tableofcontents
 \listoffigures
 \listoftables
 
 \mainmatter
-\chapter{Chapter title}
-\section{Section title}
-Body text \cite{article_template}
+
+% --- Chapter 1 ---
+\makecustomchapter{Introduction}{
+    Problem Statement $\cdot$ Motivation $\cdot$ Research Questions $\cdot$ Research Objectives $\cdot$ Research Challenges $\cdot$ Methodology and Thesis Outline
+}
+% \chapter{Introduction}
+\section{Title}
+Text~\autocite{article_template}.
+
+
+\begin{equation}
+   E = mc^2
+   \label{eq:energy}
+\end{equation}
+
+Text.
+
+\begin{table}[H]
+\small
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{5pt}
+\caption{Some data}
+\label{tab:tsne_bayes_table}
+\begin{tabularx}{\textwidth}{p{0.2\textwidth} p{0.2\textwidth} p{0.2\textwidth} p{0.2\textwidth} X}
+Var1 & Var2 & Var3 & Var4 \\ \hline % Line under headers
+30 & 4 & 1000 & 100 & 1.5 \\
+30 & 4 & 1000 & 300 & 1.075 \\
+30 & 12 & 1000 & 100 & 1.5 \\
+30 & 12 & 1000 & 500 & 0.935 \\
+30 & 16 & 1000 & 500 & 0.938 \\
+10 & 4 & 1000 & 100 & 2.136 \\
+10 & 4 & 1000 & 300 & 1.539 \\
+10 & 12 & 1000 & 100 & 2.142 \\
+\bottomrule % Professional bottom line
+\end{tabularx}
+\end{table}
+
+
+\appendix
+
+\chapter{Appendix}
+\renewcommand{\thesubsection}{A\arabic{subsection}}     % change naming of sections
+\renewcommand{\thefigure}{A\arabic{figure}}             % change naming of figure titles like S1, S2
+\setcounter{figure}{0}                                  % figure number will start from zero
+\renewcommand{\thetable}{A\arabic{table}}               % change naming of table titles like S1, S2
+\setcounter{table}{0}
+
+
+\subsection{Title}
+Text
+
 
 \backmatter
-\clearpage\printbibliography[title=References]
+
+% Reset formatting if you want the Bibliography header to look normal again
+\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge}
+\clearpage
+\printbibliography[title=References]
+
 \end{document}
