@@ -1,0 +1,103 @@
+cmu_mse_dissertation.cls: following added
+\setlength{\parindent}{0pt} % Removes indent for every paragraph
+\setlength{\parskip}{1em}    % Adds space between paragraphs for readability
+
+############
+
+dissertation.tex: The citations of references are shown with the subscripts with this code:
+\usepackage[style=ieee, autocite=superscript]{biblatex} 
+
+############
+
+dissertation.tex: the chapter title pages are modified with the following code:
+% Create a lightweight command for the custom chapter title page
+% Usage: \makecustomchapter{Title}{Content List}
+\newcommand{\makecustomchapter}[2]{
+    \cleardoublepage
+    \thispagestyle{empty}
+    \refstepcounter{chapter} % Properly increments the chapter number
+    \addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}#1} % Adds to Table of Contents
+    
+    \vspace*{1.5in}
+    \begin{center}
+        {\Huge \textbf{\chaptertitlename\ \thechapter}} \\[\baselineskip]
+        {\Huge \textbf{#1}} \\
+        \vspace{2cm}
+        {\small \textit{"Quote Quote Quote Quote Quote." Name}} \\
+        \vspace{4cm}
+        \begin{minipage}{0.8\textwidth}
+            \centering
+            \large\textbf{Contents}\\[0.5ex]
+            \rule{\textwidth}{0.8pt}\\[1ex]
+            \small #2 % This is where your custom content goes
+        \end{minipage}
+    \end{center}
+    \vfill
+    \clearpage
+}
+
+.....
+
+% --- Chapter 1 ---
+\makecustomchapter{Introduction}{
+    Problem Statement $\cdot$ Motivation $\cdot$ Research Questions $\cdot$ Research Objectives $\cdot$ Research Challenges $\cdot$ Methodology and Thesis Outline
+}
+
+############
+
+dissertation.tex: all the packages are gathered at the top.
+
+############
+
+cmu_mse_dissertation.cls: to control the space between headers/section titles and text, the following code added.
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{1ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+############
+
+dissertation.tex: \usepackage[version=4]{mhchem} added for writing the chemical reactions better.
+
+############
+
+dissertation.tex: following snippet added to adjust the spacing between the equations and the text:
+
+\AtBeginDocument{
+  \setlength{\abovedisplayskip}{10pt plus 2pt minus 2pt}
+  \setlength{\belowdisplayskip}{6pt plus 2pt minus 2pt}
+  \setlength{\abovedisplayshortskip}{0pt plus 2pt}
+  \setlength{\belowdisplayshortskip}{3pt plus 2pt minus 1pt}
+}
+
+############
+
+dissertation.tex: Figure caption size decreased with the following line:
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+
+############
+
+dissertation.tex: multirow package is used to add the table in the supplementary with the following line:
+
+\usepackage{multirow}  % For tables with merged rows (table in Supplemenetary)
+
+############
+
+dissertation.tex: The numbering of the titles, tables and the figures were customized in the supplementary section with the following lines:
+
+\renewcommand{\thesubsection}{A\arabic{subsection}}     % change naming of sections
+\renewcommand{\thefigure}{A\arabic{figure}}             % change naming of figure titles like S1, S2
+\setcounter{figure}{0}                                  % figure number will start from zero
+\renewcommand{\thetable}{A\arabic{table}}               % change naming of table titles like S1, S2
+\setcounter{table}{0}
+
+############
+
+dissertation.tex: a package for placing the figures and the tables at a specific location in the document was added with [H] after \begin{figure}:
+
+\usepackage{float}
+\begin{figure}[H]
+
+############
+
+dissertation.tex: the folling line of code was added to prevent leaving gaps between the paragraphs and sebsections when they do not completely fill the page.
+\raggedbottom
