@@ -18,6 +18,14 @@
 %\def\@copyrightnotice#1{{\small\sbox{\@copyrightbox}{#1}\ifthenelse{\lengthtest{\wd\@copyrightbox > \linewidth}}{\noindent #1 \par}{\begin{center} #1 \end{center}}}}
 \def\@copyrightnotice#1{{\small\sbox{\@copyrightbox}{#1}\ifdim\wd\@copyrightbox>\linewidth \noindent #1 \par\else\begin{center} #1 \end{center}\fi}}
 
+\setlength{\parindent}{0pt} % Removes indent for every paragraph
+\setlength{\parskip}{8pt plus 2pt minus 1pt}    % Adds space between paragraphs for readability
+
+% control the space between headers/section titles and text
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{1ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{2.5ex plus 0.5ex minus .2ex}{0.2ex plus .1ex}
+
 \def\maketitle{
 \thispagestyle{empty}
 
@@ -161,7 +169,7 @@ Materials Science \& Engineering\\
 %                       -----
 
 \setlength{\topsep}{1pt}
- \setlength{\itemsep}{1pt}
+\setlength{\itemsep}{1pt}
 \setlength{\parsep}{3pt}
 
 \renewcommand{\labelitemi}{{\small \centeroncapheight{\textbullet}}}
