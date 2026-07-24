@@ -99,5 +99,29 @@ dissertation.tex: a package for placing the figures and the tables at a specific
 
 ############
 
-dissertation.tex: the folling line of code was added to prevent leaving gaps between the paragraphs and sebsections when they do not completely fill the page.
+dissertation.tex: the following line of code was added to prevent leaving gaps between the paragraphs and sebsections when they do not completely fill the page.s
 \raggedbottom
+
+############
+
+cmu_mse_dissertation.cls: : copyright block was completely changed to comply with the college template as follows:
+
+\clearpage
+\thispagestyle{empty}
+\vspace*{\stretch{1}}
+\begin{center}
+\vspace{50em} 
+% 1. Print the standard copyright line safely
+\@ifundefined{@permission}%
+  {\@copyrightnotice{ \copyright\ \@author,\ \@Year}}%
+  {\@copyrightnotice{ \copyright\ \@author\ \@Year. \@permission}}
+
+% 2. Add the "All Rights Reserved" phrase cleanly on a new line right below it
+\vspace{-0.2em} 
+{\small All Rights Reserved}
+
+\@ifundefined{@support}{}{{\medskip\footnotesize\noindent\@support\par}}
+\@ifundefined{@disclaimer}{}{{\medskip\footnotesize\noindent\@disclaimer\par}}
+\end{center}
+\vspace*{\stretch{3}}
+\cleardoublepage
