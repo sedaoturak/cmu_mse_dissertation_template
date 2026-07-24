@@ -89,7 +89,16 @@ Materials Science \& Engineering\\
 \thispagestyle{empty}
 \vspace*{\stretch{1}}
 \begin{center}
-\@ifundefined{@permission}{\@copyrightnotice{Copyright \copyright\ \@Year\ \@author}}{\@copyrightnotice{Copyright \copyright\ \@Year\ \@author. \@permission}}
+\vspace{50em} 
+% 1. Print the standard copyright line safely
+\@ifundefined{@permission}%
+  {\@copyrightnotice{ \copyright\ \@author,\ \@Year}}%
+  {\@copyrightnotice{ \copyright\ \@author\ \@Year. \@permission}}
+
+% 2. Add the "All Rights Reserved" phrase cleanly on a new line right below it
+\vspace{-0.2em} 
+{\small All Rights Reserved}
+
 \@ifundefined{@support}{}{{\medskip\footnotesize\noindent\@support\par}}
 \@ifundefined{@disclaimer}{}{{\medskip\footnotesize\noindent\@disclaimer\par}}
 \end{center}
